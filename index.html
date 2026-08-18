@@ -1,0 +1,113 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overview — WarriorBabe — the WB4 Method</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--panel:#f8fafc;--bg:#eef0f3;
+ --accent:#4f46e5;--good:#059669;--warn:#ea580c;--bad:#9f1239}
+@media(prefers-color-scheme:dark){:root{--ink:#e8eaed;--muted:#9aa3b2;--line:#2a3140;
+ --panel:#151a23;--bg:#0d1117;--accent:#818cf8}}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
+ -webkit-font-smoothing:antialiased;line-height:1.55}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+header.top{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.topin{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:26px;height:60px}
+.brand{font-size:15px;font-weight:600;white-space:nowrap}
+.brand span{color:var(--muted);font-weight:400}
+nav.main{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+nav.main::-webkit-scrollbar{display:none}
+nav.main a{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap;
+ padding:6px 0;border-bottom:2px solid transparent}
+nav.main a:hover{color:var(--ink)}
+nav.main a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.hero{padding:48px 0 26px}
+.kick{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.hero h1{font-size:40px;margin-bottom:14px;line-height:1.15}
+.hero p{font-size:17px;color:var(--muted);max-width:820px}
+section{padding:26px 0}
+h2.sec{font-size:22px;margin-bottom:16px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.card h3{font-size:15px;margin-bottom:7px}
+.card p{font-size:14px;color:var(--muted)}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.stat .n{font-size:26px;font-weight:600;letter-spacing:-.03em}
+.stat .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:none}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;
+ border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.good{color:var(--good);border-color:var(--good)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+.tag.bad{color:var(--bad);border-color:var(--bad)}
+figure{background:var(--panel);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+figure img{width:100%;display:block;background:#000;cursor:zoom-in}
+figcaption{padding:8px 10px;font-size:12px;color:var(--muted);border-top:1px solid var(--line)}
+figcaption b{color:var(--ink);font-weight:600}
+details{background:var(--panel);border:1px solid var(--line);border-radius:9px;margin-bottom:9px}
+summary{padding:12px 15px;cursor:pointer;font-size:14px;font-weight:500;list-style:none;
+ display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary .meta{font-size:12px;color:var(--muted);font-weight:400;white-space:nowrap}
+details .body{padding:0 15px 15px;font-size:14.5px;line-height:1.72;color:var(--ink)}
+details .body p{margin-bottom:12px}
+.ts{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums;font-size:12.5px}
+.searchbar{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:9px;
+ background:var(--panel);color:var(--ink);font-size:14.5px;margin-bottom:14px;font-family:inherit}
+.note{border-left:3px solid var(--accent);padding:11px 15px;background:var(--panel);
+ border-radius:0 9px 9px 0;font-size:14px;margin-bottom:13px}
+.note.warn{border-left-color:var(--warn)}
+footer{padding:36px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:34px}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.93);display:none;align-items:center;
+ justify-content:center;z-index:99;cursor:zoom-out;padding:20px}
+#lb img{max-width:100%;max-height:92vh;object-fit:contain}
+#lb .cap{position:fixed;bottom:14px;left:0;right:0;text-align:center;color:#cbd5e1;font-size:13px;padding:0 20px}
+</style></head><body>
+<header class="top"><div class="topin">
+<div class="brand">Nikkiey Stott <span>swipe</span></div>
+<nav class="main"><a href="index.html" class="on">Overview</a><a href="analysis.html" class="">Analysis</a><a href="transcripts.html" class="">Transcript</a><a href="videos.html" class="">Video library</a><a href="board.html">Wired board</a></nav></div></header>
+<div class="wrap">
+<div class="hero"><div class="kick">Competitor swipe · captured 2 August 2026</div>
+<h1>WarriorBabe — the WB4 Method</h1><p>Body composition for women 40+, claiming <b>17,000</b> members. The most completely captured funnel in the file — every step from opt-in to booking confirmation — and the booking step is framed as <i>finishing</i> the application rather than starting anything.</p></div>
+<section><div class="grid g4"><div class="stat"><div class="n">17,000</div><div class="l">Members claimed</div></div><div class="stat"><div class="n">Women 40+</div><div class="l">ICP</div></div><div class="stat"><div class="n">5</div><div class="l">Steps captured</div></div><div class="stat"><div class="n">45 min</div><div class="l">Call length</div></div><div class="stat"><div class="n">Calendly</div><div class="l">Booking</div></div><div class="stat"><div class="n">HubSpot</div><div class="l">Stack</div></div><div class="stat"><div class="n">not observed</div><div class="l">Price</div></div><div class="stat"><div class="n">confirmed</div><div class="l">Split test</div></div></div></section>
+<section><h2 class="sec">The offer</h2><div class="tablewrap"><table><tr><th>Product</th><td>WarriorBabe / WB4 Method — body composition coaching</td></tr><tr><th>ICP</th><td>Women 40+ — the page addresses &ldquo;Fabulous Forty (And Beyond)&rdquo;, 45, 55, 65+</td></tr><tr><th>Front end</th><td>Free training webinar, forced-consumption player</td></tr><tr><th>The call</th><td>45-minute <b>Body Transformation Assessment</b> on Calendly</td></tr><tr><th>Price</th><td><b>Not observed.</b> Nothing is priced anywhere in the captured pages — the number lives on the call</td></tr><tr><th>Stack</th><td>Webflow front end, HubSpot forms and CRM, Calendly for booking</td></tr><tr><th>Lead magnets</th><td>Named mini-assets rather than one PDF — a macronutrients guide, a menopause masterclass, an over-training workshop, a busy-mum guide</td></tr></table></div></section>
+<section><h2 class="sec">What matters</h2><div class="grid g2"><div class="card"><h3>Booking is framed as finishing, not starting</h3><p>The scheduling page reads <b>&ldquo;Final Step: Required To Complete Your Application&rdquo;</b>. The lead is not agreeing to a sales call, they are completing something they already began. Directly copyable into our own booking step — and it costs nothing.</p></div><div class="card"><h3>A pre-call checklist on the confirmation page</h3><p>After booking they serve a <b>3-minute video plus a checklist</b> to complete before the call. Homework converts a passive booking into an active commitment, which is the behaviour that actually precedes showing up.</p></div><div class="card"><h3>They capture ad-level attribution at opt-in</h3><p>The opt-in posts <code>handl_fbc</code>, <code>handl_fbp</code>, <code>handl_ad_id</code>, <code>handl_adset_id</code>, <code>handl_gclid</code>, <code>handl_wbraid</code> and traffic source. They can tie a booked call back to a specific ad set. <b>We cannot — and this is the concrete fix for it.</b></p></div><div class="card"><h3>Their split test leaked in the redirect</h3><p>The opt-in redirect carries <code>funnel_id=VSL-Optin-Nikkiey-WB4</code> and <code>funnel_var_id=[Macro Accelerator Split Opt]</code>. They are running a named split on the opt-in and versioning the funnel itself.</p></div><div class="card"><h3>The VSL threatens to end if you leave</h3><p>&ldquo;DO NOT Close The Window Or The Presentation Will End!&rdquo; — forced consumption, no scrubbing, no leaving. The same posture as the timed gate on Her Closing Academy, applied earlier in the funnel.</p></div><div class="card"><h3>Applications reopen after the replay expires</h3><p>There is a dedicated <code>/webinar-apply</code> page for people who arrive after expiry — a long-form sales page that sells the assessment directly. The expired replay is not a dead end, it is a second route in.</p></div></div></section>
+<section><h2 class="sec">Funnel path</h2><div class="tablewrap"><table>
+<tr><th>#</th><th>Step</th><th>URL</th><th>Note</th></tr><tr><td><b>1</b></td><td>Opt-in</td><td><code>warriorbabe.com/macroacelerator-25-v1</code></td><td>Name and email only. Redirect leaks the split-test id and full ad attribution.</td></tr><tr><td><b>2</b></td><td>Training webinar</td><td><code>warriorbabe.com/training-webinar-vsl1</code></td><td><span class="tag bad">forced consumption</span> &ldquo;DO NOT Close The Window Or The Presentation Will End!&rdquo;</td></tr><tr><td><b>3</b></td><td>Apply</td><td><code>warriorbabe.com/webinar-apply</code></td><td>Long-form sales page for after the replay expires. 17,000-member claim sits here.</td></tr><tr><td><b>4</b></td><td>Schedule</td><td><code>warriorbabe.com/schedule-booking</code></td><td>Calendly, 45 min. Headed <b>&ldquo;Final Step: Required To Complete Your Application&rdquo;</b>.</td></tr><tr><td><b>5</b></td><td>Confirmed</td><td><code>warriorbabe.com/scheduled-success</code></td><td>3-minute video plus a pre-call checklist before the appointment counts.</td></tr></table></div></section>
+<footer>Captured 2 August 2026. Evidence in <code>~/UNDERGROUND_FUNNELS_SSOT</code>
+and <code>~/Downloads/Swipes/WARRIOR_BABE_Swipe</code>. Built with the <code>/swipe</code> skill.<br>
+Competitor research. Not for redistribution.</footer></div>
+<div id="lb"><img alt=""><div class="cap"></div></div>
+<script>
+document.addEventListener('click',function(e){
+  if(e.target.tagName==='IMG'&&e.target.closest('figure')){
+    var lb=document.getElementById('lb');
+    lb.querySelector('img').src=e.target.dataset.full||e.target.src;
+    var fc=e.target.closest('figure').querySelector('figcaption');
+    lb.querySelector('.cap').textContent=fc?fc.textContent.trim():'';
+    lb.style.display='flex';
+  } else if(e.target.closest('#lb')){document.getElementById('lb').style.display='none';}
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.getElementById('lb').style.display='none';
+});
+function wireSearch(id,sel){
+  var b=document.getElementById(id); if(!b)return;
+  b.addEventListener('input',function(){
+    var q=b.value.toLowerCase();
+    document.querySelectorAll(sel).forEach(function(el){
+      el.style.display = !q || el.textContent.toLowerCase().indexOf(q)>-1 ? '' : 'none';
+    });
+  });
+}
+wireSearch('tsearch','details.tr');
+wireSearch('ssearch','figure.sl');
+</script></body></html>
